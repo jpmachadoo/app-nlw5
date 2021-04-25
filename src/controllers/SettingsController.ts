@@ -41,4 +41,4 @@ class SettingsController {
     }
 }
 
-export { SettingsController }
+export { SettingsController };
