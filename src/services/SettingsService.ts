@@ -21,7 +21,7 @@ class SettingsService {
         });
 
         if (userAlreadyExists) {
-            throw new Error("User already exists!");
+            //throw new Error("User already exists!");
         }
     
         const settings = this.settingsRepository.create({
@@ -44,12 +44,12 @@ class SettingsService {
     }
 
     async update(username: string, chat: boolean) {
-        const settings = 
-            await this.settingsRepository.createQueryBuilder()
-                    .update(Setting)
-                    .set({chat})
-                    .where("username = :username", {username})
-                    .execute();
+        await this.settingsRepository
+            .createQueryBuilder()
+            .update(Setting)
+            .set({chat})
+            .where("username = :username", {username})
+            .execute();
     }
 
 }

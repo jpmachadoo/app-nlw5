@@ -1,4 +1,4 @@
-import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToMany, JoinColumn} from "typeorm";
+import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToMany, JoinColumn, JoinTable} from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./User";
 
