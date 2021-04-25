@@ -1,6 +1,6 @@
-import { getCustomRepository, Repository } from "typeorm"
+import { getCustomRepository, Repository } from "typeorm";
 import { Message } from "../entities/Message";
-import { MessageRepository } from "../repositories/MessagesRepository"
+import { MessagesRepository } from "../repositories/MessagesRepository";
 
 interface IMessagesCreate {
     text: string;
@@ -12,7 +12,7 @@ class MessagesService {
     private messagesRepository: Repository<Message>;
 
     constructor() {
-        this.messagesRepository = getCustomRepository(MessageRepository);
+        this.messagesRepository = getCustomRepository(MessagesRepository);
     }
 
     async create( { text, admin_id, user_id } : IMessagesCreate ) {
@@ -23,7 +23,7 @@ class MessagesService {
             user_id
         });
 
-        await this.messagesRepository.create(message);
+        await this.messagesRepository.save(message);
 
         return message;
     }

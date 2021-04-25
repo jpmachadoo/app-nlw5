@@ -2,7 +2,6 @@ import { getCustomRepository, Repository } from "typeorm";
 import { Connection } from "../entities/Connection";
 import { ConnectionsRepository } from "../repositories/ConnectionsRepository";
 
-
 interface IConnectionCreate {
     admin_id?: string;
     user_id: string;

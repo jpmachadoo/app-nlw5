@@ -1,7 +1,6 @@
-import { getCustomRepository, Repository } from "typeorm"
+import { getCustomRepository, Repository } from "typeorm";
 import { User } from "../entities/User";
-import { UsersRepository } from "../repositories/UsersRepository"
-
+import { UsersRepository } from "../repositories/UsersRepository";
 
 class UsersService {
     private usersRepository: Repository<User>;
@@ -31,14 +30,12 @@ class UsersService {
     }
 
     async findByEmail(email: string) {
-        const user = await this.usersRepository.findOne({ email });
-        return user;
-    }
+        const user = await this.usersRepository.findOne({ 
+            email 
+        });
 
-    async findByUser(user_id: string) {
-        const user = await this.usersRepository.findOne({ id: user_id });
         return user;
     }
 }
 
-export { UsersService }
+export { UsersService };
