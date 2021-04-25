@@ -7,6 +7,8 @@ const routes = Router();
 
 const settingsControler = new SettingsController();
 routes.post("/settings", settingsControler.create);
+routes.get("/settings/:username", settingsControler.findByUsername);
+routes.put("/settings/:username", settingsControler.update);
 
 const usersController = new UsersController();
 routes.post("/users", usersController.create);
