@@ -1,8 +1,6 @@
-import { query } from "express";
-import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
+import { MigrationInterface, QueryRunner, Table, TableForeignKey } from "typeorm";
 
 export class CreateConnections1619297210598 implements MigrationInterface {
-
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
@@ -11,50 +9,50 @@ export class CreateConnections1619297210598 implements MigrationInterface {
                     {
                         name: "id",
                         type: "uuid",
-                        isPrimary: true
+                        isPrimary: true,
                     },
                     {
                         name: "admin_id",
                         type: "uuid",
-                        isNullable: true
+                        isNullable: true,
                     },
                     {
                         name: "user_id",
-                        type: "uuid"
+                        type: "uuid",
                     },
                     {
                         name: "socket_id",
-                        type: "varchar"
+                        type: "varchar",
                     },
                     {
-                        name: "updated_at",
-                        type: "timestamp",
-                        default: "now()"
-                    },
-                    {
-                        name: "created_at",
-                        type: "timestamp",
-                        default: "now()"
-                    }
-                ]
+						name: "created_at",
+						type: "timestamp",
+						default: "now()",
+					},
+					{
+						name: "updated_at",
+						type: "timestamp",
+						default: "now()",
+					},
+                ],
             })
         );
 
         await queryRunner.createForeignKey(
             "connections",
             new TableForeignKey({
-                name: "FK_Conn_Users",
+                name: "FKConnectionUser",
                 referencedTableName: "users",
                 referencedColumnNames: ["id"],
                 columnNames: ["user_id"],
                 onDelete: "SET NULL",
-                onUpdate: "SET NULL"
+                onUpdate: "SET NULL",
             })
         );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropForeignKey("connections", "FK_Conn_Users");
+        await queryRunner.dropForeignKey("connections", "FKConnectionUser");
         await queryRunner.dropTable("connections");
     }
 

@@ -1,4 +1,3 @@
-import { query } from "express";
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
 export class CreateSettings1619209511094 implements MigrationInterface {
@@ -11,26 +10,26 @@ export class CreateSettings1619209511094 implements MigrationInterface {
                     {
                         name: "id",
                         type: "uuid",
-                        isPrimary: true
+                        isPrimary: true,
                     },
                     {
                         name: "username",
-                        type: "varchar"
+                        type: "varchar",
                     },
                     {
                         name: "chat",
                         type: "boolean",
-                        default: true
+                        default: true,
                     },
                     {
                         name: "updated_at",
                         type: "timestamp",
-                        default: "now()"
+                        default: "now()",
                     },
                     {
                         name: "created_at",
                         type: "timestamp",
-                        default: "now()"
+                        default: "now()",
                     }
                 ]
             })
