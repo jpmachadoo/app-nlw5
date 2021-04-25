@@ -15,7 +15,6 @@ class Setting {
     @UpdateDateColumn()
     updated_at: Date;
 
-
     @CreateDateColumn()
     created_at: Date;
 
@@ -26,4 +25,4 @@ class Setting {
     }
 }
 
-export { Setting }
+export { Setting };
